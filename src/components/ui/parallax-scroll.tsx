@@ -77,7 +77,7 @@ const CardContainer = ({ children }: { children: React.ReactNode }) => {
 
 const Title = ({ children }: { children: React.ReactNode }) => {
     return (
-        <p className="text-center text-xl font-bold">{children}</p>
+        <p className="text-center text-xl font-bold text-accent">{children}</p>
     );
 };
 
