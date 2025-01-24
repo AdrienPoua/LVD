@@ -5,14 +5,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import H1 from "@/components/ui/H1";
-import Image from "next/image"; // Import the correct Image component
+import Image from "next/image";
+import LampTitle from "@/components/ui/lamp";
 
 export default function ServicesPage() {
   return (
-    <div className="relative" style={{ backgroundImage: 'url("/svg.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <Header />
+    <div className="relative" >
+        <Header />
       <main>
-        <H1>Nos Services</H1>
+        <LampTitle title="Nos Services" />
         <Content />
       </main>
       <Footer />
