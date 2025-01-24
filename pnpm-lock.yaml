@@ -11,6 +11,12 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.10.0(react-hook-form@7.54.2(react@18.2.0))
+      '@lottiefiles/dotlottie-react':
+        specifier: ^0.12.2
+        version: 0.12.2(react@18.2.0)
+      '@lottiefiles/react-lottie-player':
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
       '@next/swc-wasm-nodejs':
         specifier: 13.5.1
         version: 13.5.1
@@ -286,6 +292,19 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lottiefiles/dotlottie-react@0.12.2':
+    resolution: {integrity: sha512-RK0VZHsjLlU+eUBsW0IDF/PEuqCP3+OSx597+RtsGIZYgNlvlLUfTQL5/kMn/ky664eLYIfgiOWMbNls7d40IA==}
+    peerDependencies:
+      react: ^17 || ^18 || ^19
+
+  '@lottiefiles/dotlottie-web@0.40.0':
+    resolution: {integrity: sha512-QeDr6/spi+JRp4gsuzq3GmkzUd9/pGXdLEa329bqH7bWaU5cn2isleTZhmCCFhc24nTrVjuF6lE5zs8Cp7YSyw==}
+
+  '@lottiefiles/react-lottie-player@3.6.0':
+    resolution: {integrity: sha512-WK5TriLJT93VF3w4IjSVyveiedraZCnDhKzCPhpbeLgQeMi6zufxa3dXNc4HmAFRXq+LULPAy+Idv1rAfkReMA==}
+    peerDependencies:
+      react: 16 - 19
 
   '@next/env@13.5.1':
     resolution: {integrity: sha512-CIMWiOTyflFn/GFx33iYXkgLSQsMQZV4jB91qaj/TfxGaGOXxn8C1j72TaUSPIyN7ziS/AYG46kGmnvuk1oOpg==}
@@ -2088,6 +2107,9 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
+  lottie-web@5.12.2:
+    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
+
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
@@ -2911,6 +2933,18 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@lottiefiles/dotlottie-react@0.12.2(react@18.2.0)':
+    dependencies:
+      '@lottiefiles/dotlottie-web': 0.40.0
+      react: 18.2.0
+
+  '@lottiefiles/dotlottie-web@0.40.0': {}
+
+  '@lottiefiles/react-lottie-player@3.6.0(react@18.2.0)':
+    dependencies:
+      lottie-web: 5.12.2
+      react: 18.2.0
 
   '@next/env@13.5.1': {}
 
@@ -4984,6 +5018,8 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+
+  lottie-web@5.12.2: {}
 
   lru-cache@10.4.3: {}
 

@@ -4,14 +4,14 @@ import { Package, Truck, Shield, Hammer, Box } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import H1 from "@/components/ui/H1";
 import Image from "next/image";
 import LampTitle from "@/components/ui/lamp";
+import Packaging from "@/components/lotties/Packaging";
 
 export default function ServicesPage() {
   return (
-    <div className="relative" >
-        <Header />
+    <div className="relative">
+      <Header />
       <main>
         <LampTitle title="Nos Services" />
         <Content />
@@ -29,6 +29,7 @@ const services = [
       "Solutions d'emballage personnalisées utilisant des matériaux de qualité muséale pour une protection optimale pendant le transport et le stockage.",
     image:
       "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80",
+    svg: <Packaging />,
   },
   {
     icon: Truck,
@@ -37,6 +38,7 @@ const services = [
       "Services de transport spécialisés avec véhicules climatisés et manutentionnaires expérimentés. Gestion des expéditions locales, nationales et internationales.",
     image:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80",
+    svg: null,
   },
   {
     icon: Shield,
@@ -45,6 +47,7 @@ const services = [
       "Couverture d'assurance complète et rapports détaillés de l'état des œuvres. Notre documentation numérique assure transparence et tranquillité d'esprit.",
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80",
+    svg: null,
   },
   {
     icon: Hammer,
@@ -53,6 +56,7 @@ const services = [
       "Services d'installation d'art professionnels par notre équipe qualifiée. Nous assurons la manipulation et le placement appropriés des œuvres.",
     image:
       "https://images.unsplash.com/photo-1581922814484-0b48460b7010?auto=format&fit=crop&q=80",
+    svg: null,
   },
   {
     icon: Box,
@@ -61,27 +65,44 @@ const services = [
       "Installations de stockage sécurisées et climatisées pour les besoins à court et long terme. Nos entrepôts répondent aux normes muséales.",
     image:
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80",
+    svg: null,
   },
 ];
 
 const Content = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
-      {
-        services.map((service, index) => (
-          <Row key={service.title} index={index} content={<div><h2>{service.title}</h2><p>{service.description}</p></div>}
-            image={service.image} />
-        ))
-      }
+    <div className="flex flex-col items-center justify-center bg-background gap-2">
+      {services.map((service, index) => (
+        <Row
+          key={service.title}
+          index={index}
+          title={service.title}
+          description={service.description}
+          image={service.image}
+          svg={service.svg}
+        />
+      ))}
     </div>
   );
 };
 
-const Row = ({ content, image, index }: { content: React.ReactNode, image: string, index: number }) => {
+const Row = ({
+  image,
+  index,
+  title,
+  description,
+  svg,
+}: {
+  title: string;
+  description: string;
+  image: string;
+  index: number;
+  svg?: React.ReactNode;
+}) => {
   const isEven = index % 2 === 0;
   return (
     <motion.div
-      className="flex flex-col md:flex-row max-w-7xl mx-auto px-4 py-12 items-center gap-8"
+      className="flex flex-col md:flex-row max-w-7xl mx-auto px-4 py-12 items-center gap-8 bg-foreground rounded-xl  shadow-xl w-full"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -91,9 +112,19 @@ const Row = ({ content, image, index }: { content: React.ReactNode, image: strin
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
       >
-        <Image src={image} alt={services[index].title} width={500} height={500} />
+        <Image
+          src={image}
+          alt={title}
+          width={500}
+          height={500}
+          className="rounded-lg"
+        />
       </motion.div>
-      <div className={`flex-1 ${isEven ? "md:order-2" : "md:order-1"}`}>{content}</div>
+      <div className={`flex-1 ${isEven ? "md:order-2" : "md:order-1"} `}>
+        <h3 className="text-2xl font-bold mb-3 text-background">{title}</h3>
+        <p className="text-thin mb-3 text-background">{description}</p>
+        {svg && svg}
+      </div>
     </motion.div>
   );
-}
+};

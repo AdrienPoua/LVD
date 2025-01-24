@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X, Package, Shield, MapPin, TruckIcon } from "lucide-react";
+import { Menu, X, Package, Shield, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import Logo from "@/components/Logo";
 
 export default function Index() {
     return (
@@ -19,9 +20,12 @@ export default function Index() {
 
 const DesktopMenu = () => {
     return (
-        <div className="hidden md:flex md:items-center md:justify-center md:flex-1 py-3">
-            <NavigationMenu>
-                <NavigationMenuList>
+        <div className="hidden md:flex md:items-center md:justify-between py-3 w-full max-w-screen-2xl mx-auto">
+            <div className="flex-shrink-0">
+                <Logo />
+            </div>
+            <NavigationMenu className="flex-1">
+                <NavigationMenuList className="flex-1">
                     {menuItems.map((item) => (
                         <NavigationMenuItem key={item.href} >
                             <Link href={item.href} className="relative group flex">
@@ -33,7 +37,6 @@ const DesktopMenu = () => {
                             </Link>
                         </NavigationMenuItem>
                     ))}
-
                 </NavigationMenuList>
             </NavigationMenu>
         </div>
