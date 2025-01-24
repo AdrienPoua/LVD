@@ -1,7 +1,5 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Navigation } from '@/components/navigation';
-import { Footer } from '@/components/footer';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
@@ -11,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <body>
@@ -23,9 +21,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Navigation />
-          <main>{children}</main>
-          <Footer />
+          {children}
         </ThemeProvider>
       </body>
     </html>

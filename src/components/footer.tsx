@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -17,7 +15,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="/transport" className="text-sm text-primary hover:text-primary">
-                  Transport d'Art
+                  Transport d&apos;Art
                 </a>
               </li>
               <li>
