@@ -1,9 +1,11 @@
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-foreground  pt-16">
+      <Container>
+        <ContentContainer>
           <div className="space-y-4">
             <h3 className="text-lg font-bold font-serif text-primary">À Propos</h3>
             <p className="text-sm text-primary">
@@ -46,13 +48,50 @@ export default function Footer() {
               <li className="text-sm text-primary">Dim: Fermé</li>
             </ul>
           </div>
-        </div>
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <p className="text-sm text-gray-500 text-center">
-            © {new Date().getFullYear()} Votre Entreprise. Tous droits réservés.
-          </p>
-        </div>
-      </div>
+        </ContentContainer>
+        <Sign />
+      </Container>
     </footer>
   );
+}
+
+const Container = ({ children }: { children: React.ReactNode }) => {
+  return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {children}
+      </div>
+  );
+}
+
+const ContentContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {children}
+    </div>
+  );
+}
+
+const Sign = () => {
+  return (
+    <div className="border border-t-gray-200 flex justify-center w-full py-5">
+      <Link
+        href="https://www.linkedin.com/in/adrien-poua"
+        target="_blank"
+        className="text-accent relative w-fit"
+      >
+        Made with
+        by
+        Adrien POUA
+        <Underline />
+      </Link>
+    </div>
+  )
+}
+
+const Underline = () => {
+  return (
+    <div className="after:bg-gradient-to-r from-accent -z-10 to-accent via-foreground after:p-1 after:shadow-xl after:w-full after:rounded-lg after:filter after:absolute after:left-0 inline-block after:-bottom-3" >
+      <span className="absolute left-1/2 -translate-x-1/2 z-50">❤</span>
+    </div>
+  )
 }
