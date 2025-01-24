@@ -14,13 +14,15 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      <HeroSection />
+      <div style={{ backgroundImage: 'url("/svg.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <Header />
+        <HeroSection />
+      </div >
       <Services />
       <About />
       <Clients />
       <Cta />
       <Footer />
-    </div>
+    </div >
   );
 }

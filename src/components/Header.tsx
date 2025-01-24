@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export default function Index() {
     return (
-        <header className="bg-background">
+        <header className="bg-transparent">
             <DesktopMenu />
             <MobileMenu />
         </header>
