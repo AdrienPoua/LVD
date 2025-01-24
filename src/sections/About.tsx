@@ -5,10 +5,10 @@ import H2 from "@/components/ui/H2"
 export default function About() {
     return (
         <section className="py-24 bg-background">
+            <H2 className="text-stroke-white  w-fit mx-auto ">
+                Qui Sommes-Nous ?
+            </H2>
             <Container>
-                <H2 className="text-stroke-white">
-                    Qui Sommes-Nous ?
-                </H2>
                 <Content />
             </Container>
         </section>
