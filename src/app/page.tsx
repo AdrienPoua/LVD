@@ -9,12 +9,9 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 export default function Home() {
-
-
-
   return (
     <div className="flex flex-col min-h-screen">
-      <div style={{ backgroundImage: 'url("/svg.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="relative" style={{ backgroundImage: 'url("/svg.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <Header />
         <HeroSection />
       </div >
@@ -26,3 +23,4 @@ export default function Home() {
     </div >
   );
 }
+
