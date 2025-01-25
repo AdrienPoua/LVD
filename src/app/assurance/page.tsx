@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Shield, FileText, Camera, Lock } from "lucide-react";
 import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function InsurancePage() {
   const features = [
@@ -29,8 +31,8 @@ export default function InsurancePage() {
   ];
 
   return (
-    <div className="pt-16">
-      {/* Section Héro */}
+    <>
+      <Header />
       <section className="relative h-[40vh] flex items-center justify-center">
         <Image
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80"
@@ -119,6 +121,7 @@ export default function InsurancePage() {
           </div>
         </div>
       </section>
-    </div>
+      <Footer />
+    </>
   );
 }

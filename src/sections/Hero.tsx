@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <main className="flex flex-col items-center justify-center h-screen" >
+    <main className="flex flex-col items-center justify-center h-[80svh]">
       <Content />
     </main>
   )

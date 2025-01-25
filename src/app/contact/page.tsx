@@ -3,10 +3,13 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function ContactPage() {
   return (
-    <div className="pt-16">
+    <>
+      <Header />
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -25,7 +28,7 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <h2 className="text-2xl font-bold font-serif text-primary mb-6">Informations de Contact</h2>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-secondary mt-1" />
@@ -77,7 +80,7 @@ export default function ContactPage() {
               className="bg-white p-8 rounded-lg shadow-lg"
             >
               <h2 className="text-2xl font-bold font-serif text-primary mb-6">Envoyez-nous un Message</h2>
-              
+
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -128,6 +131,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+      <Footer />
+    </>
   );
 }

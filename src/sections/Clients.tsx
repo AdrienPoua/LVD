@@ -4,9 +4,9 @@ import { ParallaxScroll } from "@/components/ui/parallax-scroll";
 
 export default function Clients() {
   return (
-    <section className="py-24 bg-foreground ">
+    <section className="bg-foreground">
       <Container>
-        <H2 className="w-fit mx-auto text-background">Ils Nous Font Confiance</H2>
+        <H2>Ils Nous Font Confiance</H2>
         <ParallaxScroll clients={clients} />;
       </Container>
     </section>

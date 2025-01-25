@@ -5,11 +5,14 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 export function Services() {
     return (
-        <section className="py-24 flex flex-col bg-foreground ">
+        <section className="bg-foreground">
+            <H2 className="">Nos Services</H2>
             <Container>
-                <H2 className="text-background">Nos Services</H2>
                 <HoverEffect items={services} />
             </Container>
+            <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+                <path fill="hsl(196 46% 21%)" d="M0,256L48,240C96,224,192,192,288,186.7C384,181,480,203,576,213.3C672,224,768,224,864,208C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
         </section>
     )
 }

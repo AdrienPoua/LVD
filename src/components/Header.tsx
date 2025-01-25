@@ -20,7 +20,7 @@ export default function Index() {
 
 const DesktopMenu = () => {
     return (
-        <div className="hidden md:flex md:items-center md:justify-between py-3 w-full max-w-screen-2xl mx-auto">
+        <div className="hidden md:flex md:items-center md:justify-between py-3 w-full max-w-screen-2xl mx-auto ">
             <div className="flex-shrink-0">
                 <Logo />
             </div>

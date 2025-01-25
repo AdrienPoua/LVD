@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <div className="relative">
       <Header />
-      <main>
+      <main className="mb-10">
         <LampTitle title="Nos Services" />
         <Content />
       </main>
@@ -102,29 +102,28 @@ const Row = ({
   const isEven = index % 2 === 0;
   return (
     <motion.div
-      className="flex flex-col md:flex-row max-w-7xl mx-auto px-4 py-12 items-center gap-8 bg-foreground rounded-xl  shadow-xl w-full"
+      className="flex flex-col md:flex-row max-w-7xl p-5 mx-auto items-center gap-3 bg-foreground rounded-xl  shadow-xl w-full"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <motion.div
+      <div
         className={`flex-1 ${isEven ? "md:order-1" : "md:order-2"}`}
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
       >
         <Image
           src={image}
           alt={title}
           width={500}
           height={500}
-          className="rounded-lg"
+          className="rounded-lg object-cover"
         />
-      </motion.div>
-      <div className={`flex-1 ${isEven ? "md:order-2" : "md:order-1"} `}>
-        <h3 className="text-2xl font-bold mb-3 text-background">{title}</h3>
-        <p className="text-thin mb-3 text-background">{description}</p>
+      </div>
+      <div className={`flex-1 ${isEven ? "md:order-2" : "md:order-1"} p-6 `}>
+        <h3 className="text-3xl font-bold mb-2 font-serif text-background">{title}</h3>
+        <p className="font-light text-background">{description}</p>
         {svg && svg}
       </div>
     </motion.div>
   );
 };
+

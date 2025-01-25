@@ -7,14 +7,15 @@ import Clients from "@/sections/Clients";
 import Cta from "@/sections/CTA";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import HeroContainer from "@/components/layouts/HeroContainer";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="relative" style={{ backgroundImage: 'url("/svg.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <HeroContainer>
         <Header />
         <HeroSection />
-      </div >
+      </HeroContainer>
       <Services />
       <About />
       <Clients />
@@ -23,4 +24,5 @@ export default function Home() {
     </div >
   );
 }
+
 

@@ -49,7 +49,10 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}</CardTitle>
+            <CardTitle className="relative">
+              <span className="relative z-10">{item.title}</span>
+              <span className="absolute -inset-x-2 -inset-y-1 placeholder:inset-0 transform -skew-x-12 bg-accent z-0 scale-x-0 group-hover:scale-100 transition-all duration-300 origin-left"></span>
+            </CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
         </Link>
@@ -86,7 +89,7 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4 className={cn("text-background font-bold tracking-wide mt-4", className)}>
+    <h4 className={cn("text-background font-bold text-2xl tracking-wide mt-4", className)}>
       {children}
     </h4>
   );
@@ -101,7 +104,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-background tracking-wide leading-relaxed text-sm",
+        "mt-8 text-background  ",
         className
       )}
     >

@@ -6,13 +6,12 @@
 
 :root {
 	--primary: 196 46% 21%; /* #1a4c53 */
+	--background: 196 46% 21%;
 	--primary-foreground: 0 0% 98%; /* #fff */
 	--secondary: 178 49% 31%; /* #297573 */
 	--secondary-foreground: 0 0% 98%;
 	--accent: 43 68% 52%; /* #d1a537 */
 	--accent-foreground: 0 0% 98%;
-
-	--background: 196 46% 21%;
 	--foreground: 0 0% 100%;
 	--card: 0 0% 100%;
 	--card-foreground: 196 46% 21%;
