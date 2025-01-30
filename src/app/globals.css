@@ -1,97 +1,93 @@
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-	--primary: 196 46% 21%; /* #1a4c53 */
-	--background: 196 46% 21%;
-	--primary-foreground: 0 0% 98%; /* #fff */
-	--secondary: 178 49% 31%; /* #297573 */
-	--secondary-foreground: 0 0% 98%;
-	--accent: 43 68% 52%; /* #d1a537 */
-	--accent-foreground: 0 0% 98%;
-	--foreground: 0 0% 100%;
-	--card: 0 0% 100%;
-	--card-foreground: 196 46% 21%;
-	--popover: 0 0% 100%;
-	--popover-foreground: 196 46% 21%;
-	--muted: 196 46% 95%;
-	--muted-foreground: 196 46% 45%;
-	--destructive: 0 84.2% 60.2%;
-	--destructive-foreground: 0 0% 98%;
-	--border: 196 46% 90%;
-	--input: 196 46% 90%;
-	--ring: 196 46% 21%;
-	--radius: 0.5rem;
+  --primary: 196 46% 21%; /* #1a4c53 */
+  --background: 196 46% 21%;
+  --primary-foreground: 0 0% 98%; /* #fff */
+  --secondary: 178 49% 31%; /* #297573 */
+  --secondary-foreground: 0 0% 98%;
+  --accent: 43 68% 52%; /* #d1a537 */
+  --accent-foreground: 0 0% 98%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 100%;
+  --card-foreground: 196 46% 21%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 196 46% 21%;
+  --muted: 196 46% 95%;
+  --muted-foreground: 196 46% 45%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 196 46% 90%;
+  --input: 196 46% 90%;
+  --ring: 196 46% 21%;
+  --radius: 0.5rem;
 }
 
 .dark {
-	--background: 196 46% 10%;
-	--foreground: 0 0% 98%;
-	--card: 196 46% 12%;
-	--card-foreground: 0 0% 98%;
-	--popover: 196 46% 12%;
-	--popover-foreground: 0 0% 98%;
-	--primary: 196 46% 21%;
-	--primary-foreground: 0 0% 98%;
-	--secondary: 178 49% 31%;
-	--secondary-foreground: 0 0% 98%;
-	--accent: 43 68% 52%;
-	--accent-foreground: 0 0% 98%;
-	--muted: 196 46% 20%;
-	--muted-foreground: 196 46% 70%;
-	--destructive: 0 62.8% 30.6%;
-	--destructive-foreground: 0 0% 98%;
-	--border: 196 46% 20%;
-	--input: 196 46% 20%;
-	--ring: 196 46% 70%;
+  --background: 196 46% 10%;
+  --foreground: 0 0% 98%;
+  --card: 196 46% 12%;
+  --card-foreground: 0 0% 98%;
+  --popover: 196 46% 12%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 196 46% 21%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 178 49% 31%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 43 68% 52%;
+  --accent-foreground: 0 0% 98%;
+  --muted: 196 46% 20%;
+  --muted-foreground: 196 46% 70%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 196 46% 20%;
+  --input: 196 46% 20%;
+  --ring: 196 46% 70%;
 }
 
 @layer base {
-	* {
-		@apply border-border;
-	}
-	body {
-		@apply bg-background text-foreground;
-		font-family: "Caveat", sans-serif;
-	}
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Caveat', sans-serif;
+  }
 }
 
 @layer utilities {
-	.max-w-container {
-		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-	}
+  .max-w-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
 
-	.text-stroke-white {
-		-webkit-text-stroke: 2px white;
-		/* -webkit-text-fill-color: transparent; */
-		color: transparent;
-	}
-	.text-stroke-accent {
-		-webkit-text-stroke: 2px var(--accent);
-		-webkit-text-fill-color: transparent;
-		color: transparent;
-	}
-	.text-stroke-background {
-		-webkit-text-stroke: 2px #1a4c53;
-		-webkit-text-fill-color: transparent;
-		color: var(--background);
-	}
-	.scrollbar-hidden {
-		scrollbar-width: none; /* Firefox */
-		-ms-overflow-style: none; /* IE 10+ */
-	}
-	.scrollbar-hidden::-webkit-scrollbar {
-		display: none; /* Chrome, Safari */
-	}
+  .text-stroke-white {
+    -webkit-text-stroke: 2px white;
+    /* -webkit-text-fill-color: transparent; */
+    color: transparent;
+  }
+  .text-stroke-accent {
+    -webkit-text-stroke: 2px var(--accent);
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .text-stroke-background {
+    -webkit-text-stroke: 2px #1a4c53;
+    -webkit-text-fill-color: transparent;
+    color: var(--background);
+  }
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
 }
 
 .hero-overlay {
-	background: linear-gradient(
-		to bottom,
-		rgba(26, 76, 83, 0.8),
-		rgba(41, 117, 115, 0.8)
-	);
+  background: linear-gradient(to bottom, rgba(26, 76, 83, 0.8), rgba(41, 117, 115, 0.8));
 }

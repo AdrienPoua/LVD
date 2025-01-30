@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useRef } from "react";
+'use client';
+import { useEffect, useRef } from 'react';
 
 interface SparklesProps {
   id: string;
@@ -26,7 +26,7 @@ export const SparklesCore = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     const particles: Array<{
@@ -77,11 +77,11 @@ export const SparklesCore = ({
     };
 
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
     animate();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, [maxSize, minSize, particleColor, particleDensity]);
 

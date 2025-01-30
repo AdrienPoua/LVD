@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import React from "react";
+import { cn } from '@/lib/utils';
+import React from 'react';
 
 export const BackgroundGradient = ({
   children,
@@ -22,26 +22,21 @@ export const BackgroundGradient = ({
       mouseX.current = event.clientX;
       mouseY.current = event.clientY;
     };
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
-    <div
-      className={cn(
-        "relative group",
-        containerClassName
-      )}
-    >
+    <div className={cn('group relative', containerClassName)}>
       <div
         className={cn(
-          "absolute -inset-px rounded-xl transition duration-300 group-hover:opacity-100 opacity-75 bg-gradient-to-r from-accent via-secondary to-primary blur-md",
-          className
+          'absolute -inset-px rounded-xl bg-gradient-to-r from-accent via-secondary to-primary opacity-75 blur-md transition duration-300 group-hover:opacity-100',
+          className,
         )}
       />
-      <div className="relative">{children}</div>
+      <div className='relative'>{children}</div>
     </div>
   );
-}; 
+};

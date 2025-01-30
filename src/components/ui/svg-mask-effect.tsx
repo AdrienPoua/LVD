@@ -1,7 +1,7 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 export const MaskContainer = ({
   children,
@@ -29,41 +29,33 @@ export const MaskContainer = ({
   };
 
   useEffect(() => {
-    containerRef.current?.addEventListener("mousemove", updateMousePosition);
+    containerRef.current?.addEventListener('mousemove', updateMousePosition);
     return () => {
-      containerRef.current?.removeEventListener(
-        "mousemove",
-        updateMousePosition
-      );
+      containerRef.current?.removeEventListener('mousemove', updateMousePosition);
     };
   }, []);
 
   return (
     <motion.div
       ref={containerRef}
-      className={cn("h-full relative", className)}
+      className={cn('relative h-full', className)}
       animate={{
-        backgroundColor: isHovered ? "var(--slate-900)" : "var(--white)",
+        backgroundColor: isHovered ? 'var(--slate-900)' : 'var(--white)',
       }}
     >
       <motion.div
-        className="w-full h-full flex items-center justify-center text-6xl absolute bg-black bg-grid-white/[0.2] text-white [mask-image:url(/mask.svg)] [mask-size:40px] [mask-repeat:no-repeat]"
+        className='bg-grid-white/[0.2] absolute flex h-full w-full items-center justify-center bg-black text-6xl text-white [mask-image:url(/mask.svg)] [mask-repeat:no-repeat] [mask-size:40px]'
         animate={{
-          WebkitMaskPosition: `${mousePosition.x - revealSize / 2}px ${
-            mousePosition.y - revealSize / 2
-          }px`,
-          WebkitMaskSize: isHovered ? `${revealSize}px` : "0px",
+          WebkitMaskPosition: `${mousePosition.x - revealSize / 2}px ${mousePosition.y - revealSize / 2}px`,
+          WebkitMaskSize: isHovered ? `${revealSize}px` : '0px',
         }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
+        transition={{ type: 'tween', ease: 'backOut', duration: 0.5 }}
       >
-        <div className="absolute inset-0 bg-black h-full w-full z-0 opacity-50" />
-        <div className="relative z-10">{revealText}</div>
+        <div className='absolute inset-0 z-0 h-full w-full bg-black opacity-50' />
+        <div className='relative z-10'>{revealText}</div>
       </motion.div>
 
-      <div className="w-full h-full flex items-center justify-center text-6xl absolute">
-        {children}
-      </div>
+      <div className='absolute flex h-full w-full items-center justify-center text-6xl'>{children}</div>
     </motion.div>
   );
 };
-

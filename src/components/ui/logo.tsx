@@ -1,12 +1,10 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
 export default function SparklesPreview() {
-    return (
-        <div className="w-full flex flex-col items-center justify-center overflow-hidden rounded-md">
-            <h1 className="md:text-7xl text-3xl lg:text-9xl text-center  relative z-20">
-                LVD ART
-            </h1>
-        </div>
-    );
+  return (
+    <div className='flex w-full flex-col items-center justify-center overflow-hidden rounded-md'>
+      <h1 className='relative z-20 text-center text-3xl md:text-7xl lg:text-9xl'>LVD ART</h1>
+    </div>
+  );
 }

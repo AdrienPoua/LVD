@@ -1,97 +1,83 @@
-
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground py-5">
+    <footer className='bg-foreground py-5'>
       <Container>
         <ContentContainer>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold font-serif text-primary">À Propos</h3>
-            <p className="text-sm text-primary">
-             Spécialiste du  transport et de la logistique d&apos;œuvres d&apos;art avec plus de 10 ans d&apos;expérience.
+          <div className='space-y-4'>
+            <h3 className='font-serif text-lg font-bold text-primary'>À Propos</h3>
+            <p className='text-sm text-primary'>
+              Spécialiste du transport et de la logistique d&apos;œuvres d&apos;art avec plus de 10 ans
+              d&apos;expérience.
             </p>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold font-serif text-primary">Services</h3>
-            <ul className="space-y-2">
+          <div className='space-y-4'>
+            <h3 className='font-serif text-lg font-bold text-primary'>Services</h3>
+            <ul className='space-y-2'>
               <li>
-                <a href="/transport" className="text-sm text-primary hover:text-primary">
+                <a href='/transport' className='text-sm text-primary hover:text-primary'>
                   Transport d&apos;Art
                 </a>
               </li>
               <li>
-                <a href="/services" className="text-sm text-primary hover:text-primary">
+                <a href='/services' className='text-sm text-primary hover:text-primary'>
                   Services Spécialisés
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-sm text-primary hover:text-primary">
+                <a href='/contact' className='text-sm text-primary hover:text-primary'>
                   Demande de Devis
                 </a>
               </li>
             </ul>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold font-serif text-primary">Contact</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-primary">Email: contact@example.com</li>
-              <li className="text-sm text-primary">Tél: +33 1 23 45 67 89</li>
-              <li className="text-sm text-primary">Paris, France</li>
+          <div className='space-y-4'>
+            <h3 className='font-serif text-lg font-bold text-primary'>Contact</h3>
+            <ul className='space-y-2'>
+              <li className='text-sm text-primary'>Email: contact@example.com</li>
+              <li className='text-sm text-primary'>Tél: +33 1 23 45 67 89</li>
+              <li className='text-sm text-primary'>Paris, France</li>
             </ul>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold font-serif text-primary">Horaires</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-primary">Lun - Ven: 9h - 18h</li>
-              <li className="text-sm text-primary">Sam: 10h - 16h</li>
-              <li className="text-sm text-primary">Dim: Fermé</li>
+          <div className='space-y-4'>
+            <h3 className='font-serif text-lg font-bold text-primary'>Horaires</h3>
+            <ul className='space-y-2'>
+              <li className='text-sm text-primary'>Lun - Ven: 9h - 18h</li>
+              <li className='text-sm text-primary'>Sam: 10h - 16h</li>
+              <li className='text-sm text-primary'>Dim: Fermé</li>
             </ul>
           </div>
         </ContentContainer>
       </Container>
-        <Sign />
+      <Sign />
     </footer>
   );
 }
 
 const Container = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8">
-      {children}
-    </div>
-  );
-}
+  return <div className='mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8'>{children}</div>;
+};
 
 const ContentContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-      {children}
-    </div>
-  );
-}
+  return <div className='grid grid-cols-1 gap-8 md:grid-cols-4'>{children}</div>;
+};
 
 const Sign = () => {
   return (
-    <div className=" flex justify-center w-full py-5 border-t border-gray-200">
-      <Link
-        href="https://www.linkedin.com/in/adrien-poua"
-        target="_blank"
-        className="text-accent relative w-fit"
-      >
-        Made with
-        by
-        Adrien POUA
+    <div className='flex w-full justify-center border-t border-gray-200 py-5'>
+      <Link href='https://www.linkedin.com/in/adrien-poua' target='_blank' className='relative w-fit text-accent'>
+        Made with by Adrien POUA
         <Underline />
       </Link>
     </div>
-  )
-}
+  );
+};
 
 const Underline = () => {
   return (
-    <div className="after:bg-gradient-to-r from-accent -z-10 to-accent via-foreground after:p-1 after:shadow-xl after:w-full after:rounded-lg after:filter after:absolute after:left-0 inline-block after:-bottom-3" >
-      <span className="absolute left-1/2 -translate-x-1/2 z-50">❤</span>
+    <div className='-z-10 inline-block from-accent via-foreground to-accent after:absolute after:-bottom-3 after:left-0 after:w-full after:rounded-lg after:bg-gradient-to-r after:p-1 after:shadow-xl after:filter'>
+      <span className='absolute left-1/2 z-50 -translate-x-1/2'>❤</span>
     </div>
-  )
-}
+  );
+};

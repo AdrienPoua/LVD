@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export function useScroll() {
   const [scrollY, setScrollY] = useState(0);
@@ -11,10 +11,10 @@ export function useScroll() {
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

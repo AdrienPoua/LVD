@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import HeroSection from "@/sections/Hero";
-import About from "@/sections/About";
-import { Services } from "@/sections/Services";
-import Clients from "@/sections/Clients";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HeroContainer from "@/components/layouts/HeroContainer";
+import HeroSection from '@/sections/Hero';
+import About from '@/sections/About';
+import { Services } from '@/sections/Services';
+import Clients from '@/sections/Clients';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import HeroContainer from '@/components/layouts/HeroContainer';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className='flex min-h-screen flex-col'>
       <HeroContainer>
         <Header />
         <HeroSection />
@@ -19,8 +19,6 @@ export default function Home() {
       <About />
       <Clients />
       <Footer />
-    </div >
+    </div>
   );
 }
-
-
