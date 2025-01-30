@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground  pt-16">
+    <footer className="bg-foreground py-5">
       <Container>
         <ContentContainer>
           <div className="space-y-4">
             <h3 className="text-lg font-bold font-serif text-primary">À Propos</h3>
             <p className="text-sm text-primary">
-              Spécialisés dans le transport et la logistique d'œuvres d'art avec plus de 20 ans d'expérience.
+             Spécialiste du  transport et de la logistique d&apos;œuvres d&apos;art avec plus de 10 ans d&apos;expérience.
             </p>
           </div>
           <div className="space-y-4">
@@ -49,17 +49,17 @@ export default function Footer() {
             </ul>
           </div>
         </ContentContainer>
-        <Sign />
       </Container>
+        <Sign />
     </footer>
   );
 }
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {children}
-      </div>
+    <div className="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8">
+      {children}
+    </div>
   );
 }
 
@@ -73,7 +73,7 @@ const ContentContainer = ({ children }: { children: React.ReactNode }) => {
 
 const Sign = () => {
   return (
-    <div className="border border-t-gray-200 flex justify-center w-full py-5">
+    <div className=" flex justify-center w-full py-5 border-t border-gray-200">
       <Link
         href="https://www.linkedin.com/in/adrien-poua"
         target="_blank"

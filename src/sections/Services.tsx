@@ -1,11 +1,20 @@
 import H2 from "@/components/ui/H2";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
+import { DotPattern } from "@/components/ui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 
 
 export function Services() {
     return (
-        <section className="bg-foreground">
+        <section className="bg-foreground relative">
+            <DotPattern
+                width={8}
+                height={8}
+                className={cn(
+                    "[mask-image:radial-gradient(500px_circle_at_center,black,transparent)]",
+                )}
+            />
             <H2 className="">Nos Services</H2>
             <Container>
                 <HoverEffect items={services} />

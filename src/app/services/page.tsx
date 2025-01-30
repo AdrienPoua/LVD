@@ -13,7 +13,6 @@ export default function ServicesPage() {
     <div className="relative">
       <Header />
       <main className="mb-10">
-        <LampTitle title="Nos Services" />
         <Content />
       </main>
       <Footer />

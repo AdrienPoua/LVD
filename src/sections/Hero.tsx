@@ -9,8 +9,8 @@ export default function HeroSection() {
 const Content = () => {
   return (
     <div>
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">Spécialistes du Transport et <br /> de la Manipulation d&apos;Art </h1>
-      <p className="text-xl mb-8 font-light">
+      <h1 className="text-4xl md:text-8xl font-bold mb-6 text-center">Spécialistes du Transport et <br /> de la Manipulation d&apos;Art </h1>
+      <p className="text-3xl mb-8 font-light">
         Services logistiques d&apos;art à Paris, faisant la confiance des galeries, musées et collectionneurs.
       </p>
     </div>

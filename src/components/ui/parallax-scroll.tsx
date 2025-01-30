@@ -1,25 +1,29 @@
-"use client";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+"use client"
 
-export const ParallaxScroll = ({ clients }: { clients: { label: string, type: string, image: string }[] }) => {
-    const gridRef = useRef<HTMLDivElement>(null);
+import { useScroll, useTransform, motion, useSpring, useInView } from "framer-motion"
+import { useRef, useState } from "react"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+
+export const ParallaxScroll = ({ clients }: { clients: { label: string; type: string; image: string }[] }) => {
+    const gridRef = useRef<HTMLDivElement>(null)
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
     const { scrollYProgress } = useScroll({
-        container: gridRef,
+        target: gridRef,
         offset: ["start start", "end start"],
-    });
+    })
 
-    const translateFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
-    const translateSecond = useTransform(scrollYProgress, [0, 1], [0, 200]);
-    const translateThird = useTransform(scrollYProgress, [0, 1], [0, -200]);
+    const springConfig = { stiffness: 300, damping: 30, restDelta: 0.001 }
 
-    const third = Math.ceil(clients.length / 3);
+    const translateFirst = useSpring(useTransform(scrollYProgress, [0, 1], [0, -200]), springConfig)
+    const translateSecond = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), springConfig)
+    const translateThird = useSpring(useTransform(scrollYProgress, [0, 1], [0, -200]), springConfig)
 
-    const firstPart = clients.slice(0, third);
-    const secondPart = clients.slice(third, 2 * third);
-    const thirdPart = clients.slice(2 * third);
+    const third = Math.ceil(clients.length / 3)
+    const firstPart = clients.slice(0, third)
+    const secondPart = clients.slice(third, 2 * third)
+    const thirdPart = clients.slice(2 * third)
 
     return (
         <div
@@ -27,68 +31,133 @@ export const ParallaxScroll = ({ clients }: { clients: { label: string, type: st
             ref={gridRef}
         >
             <CardContainer>
-                <div className="grid gap-10">
-                    {firstPart.map((client, index) => (
-                        <Card key={"grid-1" + index} el={client} index={index} image={client.image} type={client.type} label={client.label} translate={translateFirst} />
-                    ))}
-                </div>
-                <div className="grid gap-10">
-                    {secondPart.map((client, idx) => (
-                        <Card key={"grid-2" + idx} el={client} index={idx} image={client.image} type={client.type} label={client.label} translate={translateSecond} />
-                    ))}
-                </div>
-                <div className="grid gap-10">
-                    {thirdPart.map((client, idx) => (
-                        <Card key={"grid-3" + idx} el={client} index={idx} image={client.image} type={client.type} label={client.label} translate={translateThird} />
-                    ))}
-                </div>
+                <Column
+                    clients={firstPart}
+                    translate={translateFirst}
+                    hoveredIndex={hoveredIndex}
+                    setHoveredIndex={setHoveredIndex}
+                    startIndex={0}
+                />
+                <Column
+                    clients={secondPart}
+                    translate={translateSecond}
+                    hoveredIndex={hoveredIndex}
+                    setHoveredIndex={setHoveredIndex}
+                    startIndex={third}
+                />
+                <Column
+                    clients={thirdPart}
+                    translate={translateThird}
+                    hoveredIndex={hoveredIndex}
+                    setHoveredIndex={setHoveredIndex}
+                    startIndex={2 * third}
+                />
             </CardContainer>
         </div>
-    );
-};
+    )
+}
 
-const Card = ({ el, index, image, type, label, translate }: { el: { label: string, type: string, image: string }, index: number, image: string, type: string, label: string, translate: MotionValue<number> }) => {
+const Column = ({
+    clients,
+    translate,
+    hoveredIndex,
+    setHoveredIndex,
+    startIndex,
+}: {
+    clients: { label: string; type: string; image: string }[]
+    translate: any
+    hoveredIndex: number | null
+    setHoveredIndex: (index: number | null) => void
+    startIndex: number
+}) => {
+    return (
+        <motion.div style={{ y: translate }} className="grid gap-10">
+            {clients.map((client, index) => (
+                <Card
+                    key={startIndex + index}
+                    client={client}
+                    index={startIndex + index}
+                    isHovered={hoveredIndex === startIndex + index}
+                    setHovered={() => setHoveredIndex(startIndex + index)}
+                    setUnhovered={() => setHoveredIndex(null)}
+                />
+            ))}
+        </motion.div>
+    )
+}
+
+const Card = ({
+    client,
+    index,
+    isHovered,
+    setHovered,
+    setUnhovered,
+}: {
+    client: { label: string; type: string; image: string }
+    index: number
+    isHovered: boolean
+    setHovered: () => void
+    setUnhovered: () => void
+}) => {
+    const cardRef = useRef(null)
+    const isInView = useInView(cardRef, { once: true, amount: 0.5 })
+
     return (
         <motion.div
-            style={{ y: translate }}
-            className="relative overflow-hidden"
+            ref={cardRef}
+            className="relative overflow-hidden rounded-lg transition-all duration-300 ease-in-out"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+            onMouseEnter={setHovered}
+            onMouseLeave={setUnhovered}
         >
-            <ImageCustom src={image} alt={label} />
-            <TypeBand>{type}</TypeBand>
-            <Title>{label}</Title>
+            <ImageCustom src={client.image || "/placeholder.svg"} alt={client.label} />
+            <TypeBand>{client.type}</TypeBand>
+            <Title>{client.label}</Title>
         </motion.div>
-    );
-};
+    )
+}
 
-const ImageCustom = ({ src, alt }: { src: string, alt: string }) => {
+const ImageCustom = ({ src, alt }: { src: string; alt: string }) => {
     return (
-        <Image src={src} alt={alt} className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0" height="400" width="400" />
-    );
-};
+        <div className="relative h-80 w-full">
+            <Image
+                src={src || "/placeholder.svg"}
+                alt={alt}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="left top"
+                className="transition-all duration-300 ease-in-out"
+            />
+        </div>
+    )
+}
 
 const CardContainer = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start max-w-5xl mx-auto gap-10 px-10 ">
-            <SmoothShadow />
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start max-w-7xl mx-auto gap-10 px-4 sm:px-6 lg:px-8">
             {children}
         </div>
-    );
-};
+    )
+}
 
 const Title = ({ children }: { children: React.ReactNode }) => {
     return (
-        <p className="text-center text-xl font-bold text-accent">{children}</p>
-    );
-};
+        <p
+            className="text-center text-xl font-bold text-white absolute bottom-0 inset-x-0 bg-black bg-opacity-50 py-2"
+        >
+            {children}
+        </p>
+    )
+}
 
 const TypeBand = ({ children }: { children: React.ReactNode }) => {
     return (
-        <p className="bg-accent absolute top-0 inset-x-0 w-full h-10 flex items-center justify-center font-bold text-xl rounded-t-lg">{children}</p>
-    );
-};
+        <p className="bg-accent absolute top-0 inset-x-0 w-full h-10 flex items-center justify-center font-bold text-xl text-white">
+            {children}
+        </p>
+    )
+}
 
-const SmoothShadow = () => {
-    return (
-        <div className="absolute inset-0"></div>
-    );
-};

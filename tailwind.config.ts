@@ -11,6 +11,7 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				sans: ["Raleway", "sans-serif"],
+				handwriting: ["Caveat", "cursive"],
 				secondary: ["Embed", "serif"],
 				roboto: ["Roboto", "sans-serif"],
 			},

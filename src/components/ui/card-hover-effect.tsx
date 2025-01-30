@@ -19,7 +19,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[200px 200px 200px] py-10",
         className
       )}
     >
@@ -50,10 +50,10 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
             <CardTitle className="relative">
-              <span className="relative z-10">{item.title}</span>
+              <span className="relative text-3xl z-10 font-handwriting">{item.title}</span>
               <span className="absolute -inset-x-2 -inset-y-1 placeholder:inset-0 transform -skew-x-12 bg-accent z-0 scale-x-0 group-hover:scale-100 transition-all duration-300 origin-left"></span>
             </CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription className="text-xl tracking-wide">{item.description}</CardDescription>
           </Card>
         </Link>
       ))}
@@ -71,7 +71,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-foreground border border-background  group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full min-h-[200px] w-full p-4 overflow-hidden bg-foreground border border-background  group-hover:border-slate-700 relative z-20",
         className
       )}
     >
