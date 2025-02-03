@@ -28,7 +28,9 @@ export default function ClientSection8() {
   return (
     <section className='bg-foreground py-16'>
       <div className='container mx-auto px-4'>
-        <H2 className='text-center'>Ils nous font confiance</H2>
+        <H2 className='text-center'>
+          Ils nous font <br /> confiance
+        </H2>
         <div className='flex justify-center pb-4'>
           {clients.map((client, index) => (
             <Card
@@ -67,9 +69,9 @@ const Card = ({
       <Image
         src={client.image || '/images/placeholder.png'}
         alt={client.label}
-        layout='fill'
-        objectFit='cover'
-        className='rounded-lg'
+        width={300}
+        height={300}
+        className='rounded-lg object-cover'
       />
       <div className='absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-50'>
         <AnimatePresence>

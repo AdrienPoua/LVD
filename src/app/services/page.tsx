@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import LampTitle from '@/components/ui/lamp';
 import Packaging from '@/components/lotties/Packaging';
 
 export default function ServicesPage() {

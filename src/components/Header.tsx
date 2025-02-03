@@ -33,14 +33,12 @@ const DesktopMenu = () => {
       <NavigationMenu className='flex-1'>
         <NavigationMenuList className='flex-1'>
           {menuItems.map((item) => (
-            <NavigationMenuItem key={item.href}>
-              <Link href={item.href} className='group relative flex'>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <UnderlineEffect />
-                  <item.icon className='max-w-4 mr-2 max-h-4' />
-                  {item.label}
-                </NavigationMenuLink>
-              </Link>
+            <NavigationMenuItem key={item.href} className="relative group">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} href={item.href}>
+                <UnderlineEffect />
+                <item.icon className='max-w-4 mr-2 max-h-4' />
+                {item.label}
+              </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>

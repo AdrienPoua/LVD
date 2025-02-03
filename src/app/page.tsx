@@ -1,7 +1,7 @@
 'use client';
 
 import HeroSection from '@/sections/Hero';
-import About from '@/sections/About';
+import About from '@/sections/About/Index';
 import { Services } from '@/sections/Services';
 import Clients from '@/sections/Clients';
 import Footer from '@/components/Footer';
