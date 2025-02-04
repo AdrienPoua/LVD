@@ -17,7 +17,7 @@ import { UnderlineEffect } from '@/components/ui/UnderlineEffect';
 
 export default function Index() {
   return (
-    <header className='bg-transparent'>
+    <header className='bg-transparent fixed top-0 left-0 right-0 z-50 backdrop-blur-sm'>
       <DesktopMenu />
       <MobileMenu />
     </header>
@@ -41,6 +41,12 @@ const DesktopMenu = () => {
               </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
+          <NavigationMenuItem >
+            <NavigationMenuLink className="bg-accent text-white flex items-center justify-center px-4 py-2 rounded-md hover:bg-accent/90 transition-colors duration-300 hover:shadow-xl" href={'/contact'}>
+              <MapPin className='max-w-4 mr-2 max-h-4' />
+              Contact
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     </div>
@@ -99,10 +105,5 @@ const menuItems = [
     href: '/#partenaires',
     label: 'Nos partenaires',
     icon: Shield,
-  },
-  {
-    href: '/contact',
-    label: 'Contact',
-    icon: MapPin,
-  },
+  }
 ];

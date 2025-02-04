@@ -2,10 +2,12 @@
 import Link from 'next/link';
 import { UnderlineEffect } from '@/components/ui/UnderlineEffect';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 
 export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) {
-  return (
-    <footer
+    const router = useRouter();
+    return (
+      <footer
       className='relative py-5 text-foreground'
       style={
         variant === 'bg'
@@ -39,6 +41,7 @@ export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) 
           </Column>
           <Column>
             <H3>Contact</H3>
+            <button className="inset-0 absolute" onClick={() => router.push('/contact')}/>
             <ul className='space-y-2'>
               <Li onClick={() => window.open('mailto:contact@ldv-art.com', '_blank')}>Email: contact@ldv-art.com</Li>
               <Li>Tél: +33 1 23 45 67 89</Li>
@@ -94,7 +97,7 @@ const CustomLink = ({ children, href }: { children: React.ReactNode; href: strin
 
 const Column = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className='group z-50 space-y-4 rounded-lg p-4 transition-all duration-300 hover:bg-accent'>{children}</div>
+    <div className='group z-50 space-y-4 rounded-lg p-4 transition-all duration-300 hover:bg-accent relative'>{children}</div>
   );
 };
 

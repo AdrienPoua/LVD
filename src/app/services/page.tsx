@@ -3,70 +3,66 @@
 import { Package, Truck, Shield, Hammer, Box } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Packaging from '@/components/lotties/Packaging';
-
+import { Card } from './Card';
+import HeroContainer from '@/components/layouts/HeroContainer';
+import Transport from '@/components/lotties/Transport';
 export default function ServicesPage() {
   return (
-    <div className='relative'>
+    <HeroContainer variant='nude'>
       <Header />
-      <main className='mb-10'>
+      <main className='pt-32'>
         <Content />
       </main>
-      <Footer />
-    </div>
+      <Footer variant='nude' />
+    </HeroContainer>
   );
 }
 
 const services = [
   {
-    icon: Package,
+    title: "Transport d'Art",
+    description:
+      "Le transport d'œuvre d'art est toujours une étape sensible, au-delà de la valeur monétaire, chaque œuvre a son histoire, ses spécificités et une valeur sentimentale unique. Ayant conscience de tous ces facteurs, nous mettons tout en œuvre à vos côtés pour que votre transport soit le plus sécurisé, de la prise en charge jusqu'à la livraison, à l'aide de nos véhicules adaptés et géolocalisés. Dédié ou en groupage, nous cherchons et vous proposons toutes les solutions adaptées à vos besoins.",
+    image: '/images/services/camion.png',
+    svg: <Transport />,
+  },
+  {
     title: 'Emballage sur Mesure',
     description:
-      "Solutions d'emballage personnalisées utilisant des matériaux de qualité muséale pour une protection optimale pendant le transport et le stockage.",
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80',
+      "Le conditionnement est une étape primordiale pour protéger les œuvres lors de leurs transports. Chez LDV ART nous vous proposons des matériaux de qualité adapté à la typologie de vos biens afin d'assurer leurs préservations lors du transport ou du stockage",
+    image: '/images/services/packaging.png',
     svg: <Packaging />,
   },
   {
-    icon: Truck,
-    title: "Transport d'Art",
-    description:
-      'Services de transport spécialisés avec véhicules climatisés et manutentionnaires expérimentés. Gestion des expéditions locales, nationales et internationales.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80',
-    svg: null,
-  },
-  {
-    icon: Shield,
     title: 'Assurance & Rapports',
     description:
-      "Couverture d'assurance complète et rapports détaillés de l'état des œuvres. Notre documentation numérique assure transparence et tranquillité d'esprit.",
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80',
-    svg: null,
+      "Conscient que vos biens sont uniques et d'une valeur importante aussi bien monétaire que sentimentale, LDV ART a donc choisi de souscrire une assurance adaptée « fine art ». Nous pouvons donc sur demande assurer vos œuvres à leur valeur réelle. Nos équipes sont également dotées d'un outil permettant de réaliser des constats d'états sur mesure de vos œuvres, à l'enlèvement et la livraison afin de garantir l'état de vos biens.",
+      image: '/images/services/camion.png',
+      svg: null,
   },
   {
     icon: Hammer,
     title: 'Installation',
     description:
-      "Services d'installation d'art professionnels par notre équipe qualifiée. Nous assurons la manipulation et le placement appropriés des œuvres.",
-    image: 'https://images.unsplash.com/photo-1581922814484-0b48460b7010?auto=format&fit=crop&q=80',
-    svg: null,
+      "Étape importante à la suite de votre transport, l’installation de vos œuvres nécessite une attention particulière. Nous pouvons vous accompagner sur cette prestation en vous proposant des régisseurs spécialisés qui sublimerons vos œuvres lors de leurs installations en s’adaptant à votre environnement.",
+      image: '/images/services/camion.png',
+      svg: null,
   },
   {
-    icon: Box,
-    title: 'Solutions de Stockage',
+    title: 'Stockage',
     description:
-      'Installations de stockage sécurisées et climatisées pour les besoins à court et long terme. Nos entrepôts répondent aux normes muséales.',
-    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80',
-    svg: null,
+      "Avec notre entrepôt privé, sécurisé et dédié au stockage d’œuvre d’art nous vous proposons de stocker vos œuvres sur une courte, moyenne ou longue durée.",
+      image: '/images/services/camion.png',
+      svg: null,
   },
 ];
 
 const Content = () => {
   return (
-    <div className='flex flex-col items-center justify-center gap-2 bg-background'>
+    <div className='grid grid-cols-1 gap-2'>
       {services.map((service, index) => (
-        <Row
+        <Card
           key={service.title}
           index={index}
           title={service.title}
@@ -79,35 +75,4 @@ const Content = () => {
   );
 };
 
-const Row = ({
-  image,
-  index,
-  title,
-  description,
-  svg,
-}: {
-  title: string;
-  description: string;
-  image: string;
-  index: number;
-  svg?: React.ReactNode;
-}) => {
-  const isEven = index % 2 === 0;
-  return (
-    <motion.div
-      className='mx-auto flex w-full max-w-7xl flex-col items-center gap-3 rounded-xl bg-foreground p-5 shadow-xl md:flex-row'
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-    >
-      <div className={`flex-1 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-        <Image src={image} alt={title} width={500} height={500} className='rounded-lg object-cover' />
-      </div>
-      <div className={`flex-1 ${isEven ? 'md:order-2' : 'md:order-1'} p-6`}>
-        <h3 className='mb-2 font-serif text-3xl font-bold text-background'>{title}</h3>
-        <p className='font-light text-background'>{description}</p>
-        {svg && svg}
-      </div>
-    </motion.div>
-  );
-};
+

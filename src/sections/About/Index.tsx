@@ -38,7 +38,7 @@ const data = [
   {
     label: 'Une équipe de techniciens fixes',
     description: 'Formé au conditionnement, maniement et transport de vos œuvres',
-    image: 'images/placeholder.png',
+    image: 'images/about/team.jpg',
   },
   {
     label: 'Basé à Paris',

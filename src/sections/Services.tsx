@@ -1,6 +1,5 @@
 import H2 from '@/components/ui/H2';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
-import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
 
 export function Services() {

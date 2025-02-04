@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next sitemap",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -62,6 +63,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.0.6",
     "next": "13.5.1",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.3.0",
     "postcss": "8.4.30",
     "prettier-plugin-tailwindcss": "^0.6.11",

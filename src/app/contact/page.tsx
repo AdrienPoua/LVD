@@ -99,7 +99,7 @@ const Section = () => {
                     <Textarea rows={4} />
                   </div>
 
-                  <Button className='w-full bg-accent text-white hover:bg-accent/90'>Envoyer le message</Button>
+                  <Button className='w-full bg-accent text-white hover:bg-accent/90'>Envoyer</Button>
                 </form>
               </CardContent>
             </Card>
