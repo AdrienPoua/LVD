@@ -12,8 +12,8 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
+import { UnderlineEffect } from '@/components/ui/UnderlineEffect';
 
 export default function Index() {
   return (
@@ -33,7 +33,7 @@ const DesktopMenu = () => {
       <NavigationMenu className='flex-1'>
         <NavigationMenuList className='flex-1'>
           {menuItems.map((item) => (
-            <NavigationMenuItem key={item.href} className="relative group">
+            <NavigationMenuItem key={item.href} className='group relative'>
               <NavigationMenuLink className={navigationMenuTriggerStyle()} href={item.href}>
                 <UnderlineEffect />
                 <item.icon className='max-w-4 mr-2 max-h-4' />
@@ -84,17 +84,6 @@ const MobileMenu = () => {
   );
 };
 
-const UnderlineEffect = () => {
-  return (
-    <span
-      className={cn(
-        'absolute bottom-0 left-0 h-0.5 w-full scale-x-0 bg-accent transition-transform duration-200',
-        'group-hover:scale-x-100',
-      )}
-    />
-  );
-};
-
 const menuItems = [
   {
     href: '/services',
@@ -107,8 +96,8 @@ const menuItems = [
     icon: Shield,
   },
   {
-    href: '/valeurs',
-    label: 'Nos valeurs',
+    href: '/#partenaires',
+    label: 'Nos partenaires',
     icon: Shield,
   },
   {

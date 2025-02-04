@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='fr' suppressHydrationWarning>

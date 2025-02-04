@@ -1,5 +1,3 @@
-'use client';
-
 import HeroSection from '@/sections/Hero';
 import About from '@/sections/About/Index';
 import { Services } from '@/sections/Services';
@@ -15,8 +13,8 @@ export default function Home() {
         <Header />
         <HeroSection />
       </HeroContainer>
-      <Services />
       <About />
+      <Services />
       <Clients />
       <Footer />
     </div>

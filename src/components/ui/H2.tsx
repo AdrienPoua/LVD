@@ -6,12 +6,12 @@ export default function H2Design2({
   className,
 }: Readonly<{ children: React.ReactNode; className?: string }>) {
   return (
-    <div className='relative flex items-center justify-center  animate-from-bottom animate-view'>
+    <div className={cn('animate-view relative flex animate-from-bottom items-center justify-center', className)}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         id='visual'
         viewBox='-300 -300 600 600'
-        width='400px'
+        width='500px'
         height='400px'
         preserveAspectRatio='xMidYMid meet'
       >
@@ -20,7 +20,7 @@ export default function H2Design2({
           fill='#d1a537'
         />
       </svg>
-      <h2 className={cn('text-6xl text-foreground', 'absolute -translate-y-[100px]')}>{children}</h2>
+      <h2 className={cn('text-6xl', 'absolute -translate-y-[50px]')}>{children}</h2>
     </div>
   );
 }
