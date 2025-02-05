@@ -37,7 +37,7 @@ const Section = () => {
             transition={{ duration: 0.8 }}
             className='space-y-8'
           >
-            <h2 className='relative mb-6 w-fit text-3xl font-bold'>Informations </h2>
+            <h2 className='relative mb-6 w-fit font-secondary text-3xl'>Informations </h2>
 
             <div className='space-y-6'>
               {[
@@ -53,9 +53,9 @@ const Section = () => {
                 <div key={index} className='flex items-start gap-4'>
                   <item.icon className='mt-1 h-6 w-6 text-secondary' />
                   <div>
-                    <h3 className='mb-2 text-lg font-semibold'>{item.title} </h3>
+                    <h3 className='mb-2 font-secondary text-lg font-semibold'>{item.title} </h3>
                     {item.content.map((line, i) => (
-                      <p key={i} className='font-secondary font-light'>
+                      <p key={i} className='font-light'>
                         {line}
                       </p>
                     ))}
@@ -98,7 +98,6 @@ const Section = () => {
                     <Label className='mb-1 block text-sm font-medium'>Message</Label>
                     <Textarea rows={4} />
                   </div>
-
                   <Button className='w-full bg-accent text-white hover:bg-accent/90'>Envoyer</Button>
                 </form>
               </CardContent>

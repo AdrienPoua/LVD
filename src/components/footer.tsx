@@ -5,9 +5,9 @@ import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
 export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) {
-    const router = useRouter();
-    return (
-      <footer
+  const router = useRouter();
+  return (
+    <footer
       className='relative py-5 text-foreground'
       style={
         variant === 'bg'
@@ -20,7 +20,7 @@ export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) 
         <div className={cn('grid grid-cols-1 gap-8 md:grid-cols-4')}>
           <Column>
             <H3>À Propos</H3>
-            <p className='font-secondary text-xl'>
+            <p className='text-xl'>
               Spécialiste du transport et de la logistique d&apos;œuvres d&apos;art avec plus de 6 ans
               d&apos;expérience.
             </p>
@@ -29,19 +29,23 @@ export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) 
             <H3>Services</H3>
             <ul className='space-y-2'>
               <Li>
-                <CustomLink href='/transport'>Transport d&apos;Art</CustomLink>
+                <CustomLink href='/services#transport'>Transport d&apos;Art</CustomLink>
               </Li>
               <Li>
-                <CustomLink href='/services'>Services Spécialisés</CustomLink>
+                <CustomLink href='/services#conditionnement'>Emballage sur Mesure</CustomLink>
               </Li>
               <Li>
-                <CustomLink href='/contact'>Demande de Devis</CustomLink>
+                <CustomLink href='/services#assurance'>Assurance & Rapports</CustomLink>
               </Li>
+              <Li>
+                <CustomLink href='/services#regie'>Régie</CustomLink>
+              </Li>
+
             </ul>
           </Column>
           <Column>
             <H3>Contact</H3>
-            <button className="inset-0 absolute" onClick={() => router.push('/contact')}/>
+            <button className='absolute inset-0' onClick={() => router.push('/contact')} />
             <ul className='space-y-2'>
               <Li onClick={() => window.open('mailto:contact@ldv-art.com', '_blank')}>Email: contact@ldv-art.com</Li>
               <Li>Tél: +33 1 23 45 67 89</Li>
@@ -59,7 +63,7 @@ export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) 
         </div>
       </div>
       <div className={cn('flex w-full justify-center border-t border-accent py-5')}>
-        <Link href='https://www.linkedin.com/in/adrien-poua' target='_blank' className='relative w-fit text-accent'>
+        <Link href='https://www.linkedin.com/in/adrien-poua' target='_blank' className='relative w-fit text-accent font-secondary'>
           Made by Adrien POUA
           <Underline />
         </Link>
@@ -81,14 +85,14 @@ const TopTransition = () => {
 
 const H3 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h3 className='text-2xl font-bold text-accent transition-all duration-300 group-hover:text-foreground'>
+    <h3 className='font-secondary text-2xl text-accent transition-all duration-300 group-hover:text-foreground'>
       {children}
     </h3>
   );
 };
 const CustomLink = ({ children, href }: { children: React.ReactNode; href: string }) => {
   return (
-    <Link href={href} className='group relative'>
+    <Link href={href} className='group/link relative'>
       {children}
       <UnderlineEffect variant='foreground' />
     </Link>
@@ -97,14 +101,14 @@ const CustomLink = ({ children, href }: { children: React.ReactNode; href: strin
 
 const Column = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className='group z-50 space-y-4 rounded-lg p-4 transition-all duration-300 hover:bg-accent relative'>{children}</div>
+    <div className='group relative z-50 space-y-4 rounded-lg p-4 transition-all duration-300 hover:bg-accent'>
+      {children}
+    </div>
   );
 };
 
 const Li = ({ children, onClick }: { children: React.ReactNode; onClick?: () => void }) => {
-  return (
-    <li className='font-secondary text-xl'>{onClick ? <button onClick={onClick}>{children}</button> : children}</li>
-  );
+  return <li className='text-xl'>{onClick ? <button onClick={onClick}>{children}</button> : children}</li>;
 };
 
 const Underline = () => {

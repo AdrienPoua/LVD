@@ -5,7 +5,7 @@ export const UnderlineEffect = ({ variant = 'accent' }: { variant?: 'accent' | '
     <span
       className={cn(
         'absolute bottom-0 left-0 h-0.5 w-full scale-x-0 transition-transform duration-200',
-        'group-hover:scale-x-100',
+        'group-hover/link:scale-x-100',
         variant === 'foreground' ? 'bg-foreground' : 'bg-accent',
       )}
     />

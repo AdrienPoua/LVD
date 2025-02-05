@@ -34,7 +34,7 @@ export default function InsurancePage() {
     <>
       <Header />
       <div className='h-screen flex flex-col items-center justify-center'>
-        <h1 className="text-center text-4xl font-secondary"> ICI DETAILLER LES ASSURANCES POUR RASSURER LE CLIENT ?? </h1>
+        <h1 className="text-center text-4xl "> ICI DETAILLER LES ASSURANCES POUR RASSURER LE CLIENT ?? </h1>
       </div>
       <Footer />
     </>

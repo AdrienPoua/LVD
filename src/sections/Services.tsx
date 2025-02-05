@@ -5,11 +5,11 @@ import { cn } from '@/lib/utils';
 export function Services() {
   return (
     <section
-      className='relative mt-16 bg-foreground pb-56'
+      className='relative bg-foreground pb-56'
       style={{ backgroundImage: 'url("/svg/heroBanner.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <TopTransition />
-      <H2 className='mt-20'>Nos Services</H2>
+      <H2 className='mt-56'>Nos Services</H2>
       <div
         className={cn(
           'container mx-auto flex flex-col items-center justify-center',
@@ -53,34 +53,34 @@ const services = [
   {
     title: "Transport d'Art",
     description: 'Services de transport spécialisés',
-    link: '/services',
+    link: '/services#transport',
   },
   {
     title: 'Conditionnement',
     description: "Solutions d'emballage personnalisées",
-    link: '/services',
+    link: '/services#conditionnement',
   },
 
   {
     title: 'Stockage',
-    description: 'Services de transport',
-    link: '/services',
+    description: 'Services de stockage',
+    link: '/services#stockage',
   },
   {
-    title: 'Régie et installation',
+    title: 'Régie',
     description:
-      "Services de transport spécialisés pour œuvres d'art à l'échelle régionale, nationale et internationale.",
-    link: '/services',
+      "Organise et coordonne",
+    link: '/services#regie',
   },
   {
     title: 'Manutention',
     description:
-      "Services de transport spécialisés pour œuvres d'art à l'échelle régionale, nationale et internationale.",
-    link: '/services',
+      "Prise en charge, transport et l'installation",
+    link: '/services#manutention',
   },
   {
     title: 'Assurance et rapports',
     description: "Couverture d'assurance complète fine art",
-    link: '/services',
+    link: '/services#assurance',
   },
 ];

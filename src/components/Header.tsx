@@ -14,10 +14,12 @@ import {
 } from '@/components/ui/navigation-menu';
 import Logo from '@/components/Logo';
 import { UnderlineEffect } from '@/components/ui/UnderlineEffect';
+import MainSVG from '@/components/ui/MainSVG';
+import { Main } from 'next/document';
 
 export default function Index() {
   return (
-    <header className='bg-transparent fixed top-0 left-0 right-0 z-50 backdrop-blur-sm'>
+    <header className='bg-transparent backdrop-blur-sm'>
       <DesktopMenu />
       <MobileMenu />
     </header>
@@ -41,8 +43,9 @@ const DesktopMenu = () => {
               </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
-          <NavigationMenuItem >
-            <NavigationMenuLink className="bg-accent text-white flex items-center justify-center px-4 py-2 rounded-md hover:bg-accent/90 transition-colors duration-300 hover:shadow-xl" href={'/contact'}>
+          <NavigationMenuItem>
+            <NavigationMenuLink className='relative flex gap-2' href={'/contact'}>
+              <MainSVG width={200} height={200} className='-z-10 -translate-x-[50px] -translate-y-[50px]' />
               <MapPin className='max-w-4 mr-2 max-h-4' />
               Contact
             </NavigationMenuLink>
@@ -83,7 +86,9 @@ const MobileMenu = () => {
               {item.label}
             </Link>
           ))}
-          <Button className='mt-4 w-full bg-accent text-white hover:bg-accent/90'>Devis Gratuit</Button>
+          <Button className='mt-4 w-full bg-accent text-white hover:bg-accent/90'>
+            <Link href='/contact'>Contact</Link>
+          </Button>
         </div>
       </motion.div>
     </nav>
@@ -105,5 +110,5 @@ const menuItems = [
     href: '/#partenaires',
     label: 'Nos partenaires',
     icon: Shield,
-  }
+  },
 ];

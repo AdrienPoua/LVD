@@ -10,11 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Raleway', 'sans-serif'],
-        handwriting: ['Caveat', 'cursive'],
-        secondary: ['Embed', 'serif'],
-        roboto: ['Roboto', 'sans-serif'],
-        playwrite: ['Playwrite VN', 'sans-serif'],
+        primary: ['Roboto', 'sans-serif'],
+        secondary: ['Playwrite VN', 'sans-serif'],
       },
       colors: {
         primary: {

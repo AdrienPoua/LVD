@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
+import {} from 'next/navigation';
 
 export const HoverEffect = ({
   items,
@@ -23,9 +24,9 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <Link
-          href={item?.link}
-          key={item?.link}
-          className='group relative block h-full w-full p-2'
+          href={item.link}
+          key={item.link}
+          className='group relative block h-full w-full cursor-pointer p-2'
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -48,10 +49,10 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
             <CardTitle className='relative'>
-              <span className='relative z-10 font-playwrite text-3xl'>{item.title}</span>
+              <span className='relative z-10 font-secondary text-3xl'>{item.title}</span>
               <span className='absolute -inset-x-2 -inset-y-1 z-0 origin-left -skew-x-12 scale-x-0 transform bg-accent transition-all duration-300 placeholder:inset-0 group-hover:scale-100'></span>
             </CardTitle>
-            <CardDescription className='font-secondary text-2xl tracking-wide'>{item.description}</CardDescription>
+            <CardDescription className='text-2xl tracking-wide'>{item.description}</CardDescription>
           </Card>
         </Link>
       ))}

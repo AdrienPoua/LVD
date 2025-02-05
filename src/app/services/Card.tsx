@@ -7,10 +7,13 @@ interface CardProps {
     description: string
     image: string
     index: number
+    id: string
     svg?: React.ReactNode
 }
 
-export const Card = ({ image, index, title, description, svg }: CardProps) => {
+
+
+export const Card = ({ image, index, title, description, svg, id }: CardProps) => {
     const isEven = index % 2 === 0
 
     return (
@@ -39,11 +42,12 @@ export const Card = ({ image, index, title, description, svg }: CardProps) => {
                     "text-background"
                 )}
             >
-                <h3 className="mb-6 text-3xl font-bold text-center">{title}</h3>
-                <p className="mb-6 font-secondary text-xl text-background">{description}</p>
+                <h3 className="mb-6 text-3xl font-bold text-center bg-accent rounded-lg p-2 font-secondary" id={id} >{title}</h3>
+                <p className="mb-6 text-xl text-background">{description}</p>
                 {svg && <div className="mt-4">{svg}</div>}
             </div>
         </div>
+
     )
 }
 
