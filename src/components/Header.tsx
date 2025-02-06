@@ -15,7 +15,6 @@ import {
 import Logo from '@/components/Logo';
 import { UnderlineEffect } from '@/components/ui/UnderlineEffect';
 import MainSVG from '@/components/ui/MainSVG';
-import { Main } from 'next/document';
 
 export default function Index() {
   return (
@@ -60,7 +59,8 @@ const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav>
-      <div className='flex items-center md:hidden'>
+      <div className='flex items-center justify-between md:hidden'>
+        <Logo />
         <button
           onClick={() => setIsOpen(!isOpen)}
           className='inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-primary focus:outline-none'

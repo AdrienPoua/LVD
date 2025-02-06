@@ -27,7 +27,7 @@ export const Card = ({ image, index, title, description, svg, id, icon: Icon }: 
         'mx-auto w-full max-w-screen-2xl',
         'grid grid-cols-1 md:grid-cols-2',
         'rounded-xl bg-foreground shadow-lg transition-transform hover:scale-105 hover:shadow-xl',
-        'overflow-hidden'
+        'overflow-hidden',
       )}
     >
       {isEven ? (
@@ -46,11 +46,11 @@ export const Card = ({ image, index, title, description, svg, id, icon: Icon }: 
 };
 
 const CardImage = ({ image, title }: { image: string; title: string }) => (
-  <div className="relative h-full w-full">
+  <div className='relative h-full w-full'>
     <Image
       src={image || '/placeholder.png'}
       alt={title}
-      className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+      className='h-full w-full object-cover transition-transform duration-300 hover:scale-105'
       width={500}
       height={500}
     />
@@ -58,18 +58,18 @@ const CardImage = ({ image, title }: { image: string; title: string }) => (
 );
 
 const CardContent = ({ title, description, svg, id, icon: Icon }: Omit<CardProps, 'image' | 'index'>) => (
-  <div className="flex flex-col justify-center p-6 md:p-8 text-background">
-    <div className="mb-10 flex items-center justify-center md:justify-start">
-      <Icon className="mr-2 h-8 w-8 text-accent" />
-      <h3 className="font-secondary text-3xl font-bold leading-[5rem] relative z-10 px-5"  id={id}>
+  <div className='flex flex-col justify-center p-6 text-background md:p-8'>
+    <div className='mb-10 flex items-center justify-center md:justify-start'>
+      <Icon className='mr-2 h-8 w-8 text-accent' />
+      <h3 className='relative z-10 px-5 font-secondary text-3xl font-bold leading-[5rem]' id={id}>
         {title}
-        <span className="bg-accent absolute inset-0 -skew-x-12 -z-10"/>
+        <span className='absolute inset-0 -z-10 -skew-x-12 bg-accent' />
       </h3>
     </div>
     <p
-      className="mb-6 text-lg leading-10 text-background/90"
+      className='mb-6 text-lg leading-10 text-background/90'
       dangerouslySetInnerHTML={{ __html: description.replace(/\./g, '.<br/>') }}
     />
-    {svg && <div className="mt-4">{svg}</div>}
+    {svg && <div className='mt-4'>{svg}</div>}
   </div>
 );

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 export default function MainSVG({ width, height, className }: { width: number; height: number; className?: string }) {
   return (

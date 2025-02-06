@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import H2 from '@/components/ui/H2';
 import { motion } from 'framer-motion';
+import AppearBottom from '@/components/ui/Appear-bottom';
 
 export default function Valeurs() {
   return (
@@ -10,13 +11,9 @@ export default function Valeurs() {
       <H2 className='relative z-10 mb-10 text-center text-background'>Nos valeurs</H2>
       <Canvas>
         {data.map((item, index) => (
-          <Card
-            key={index}
-            label={item.label}
-            description={item.description}
-            position={positions[index]}
-            index={index}
-          />
+          <AppearBottom key={index}>
+            <Card label={item.label} description={item.description} index={index} />
+          </AppearBottom>
         ))}
       </Canvas>
     </section>
@@ -50,26 +47,7 @@ const data = [
   },
 ];
 
-const positions = [
-  { x: 10, y: 0 },
-  { x: 60, y: 15 },
-  { x: 40, y: 12 },
-  { x: 20, y: 40 },
-  { x: 80, y: 10 },
-  { x: 50, y: 50 },
-];
-
-const Card = ({
-  label,
-  description,
-  position,
-  index,
-}: {
-  label: string;
-  description: string;
-  position: { x: number; y: number };
-  index: number;
-}) => {
+const Card = ({ label, description, index }: { label: string; description: string; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [rotation, setRotation] = useState(0);
 
@@ -80,11 +58,7 @@ const Card = ({
 
   return (
     <motion.div
-      className='animate-view absolute w-[300px] animate-from-bottom cursor-pointer'
-      style={{
-        left: `${position.x}%`,
-        top: `${position.y}%`,
-      }}
+      className='animate-view animate-from-bottom w-[300px] cursor-pointer'
       initial={{ opacity: 0, scale: 0, rotate: isHovered ? 0 : rotation }}
       animate={{ opacity: 1, scale: 1, rotate: isHovered ? 0 : rotation }}
       transition={{ duration: 0.8 }}
@@ -126,7 +100,7 @@ const Card = ({
         </motion.svg>
 
         <div className='absolute inset-0 flex flex-col items-center justify-center p-4 text-center'>
-          <h3 className='mb-2 font-secondary text-xl text-background font-bold'>{label}</h3>
+          <h3 className='mb-2 font-secondary text-xl font-bold text-background'>{label}</h3>
           <motion.p
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: isHovered ? 1 : 0, height: isHovered ? 'auto' : 0 }}
@@ -142,5 +116,9 @@ const Card = ({
 };
 
 const Canvas = ({ children }: { children: React.ReactNode }) => {
-  return <div className='container relative mx-auto h-[40rem] w-full'>{children}</div>;
+  return (
+    <div className='container mx-auto flex flex-col items-center justify-items-center py-10 md:grid md:grid-cols-3'>
+      {children}
+    </div>
+  );
 };

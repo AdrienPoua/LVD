@@ -7,6 +7,7 @@ import HeroContainer from '@/components/layouts/HeroContainer';
 import { Content } from './Content';
 import { motion } from 'framer-motion';
 import H2 from '@/components/ui/H2';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function ServicesPage() {
 
   return (
     <HeroContainer variant='nude'>
+      <ScrollToTop />
       <Header />
       <motion.main
         className='pb-16 pt-32'

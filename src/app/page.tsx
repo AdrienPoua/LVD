@@ -10,7 +10,7 @@ import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export default function Home() {
   return (
-    <div className='flex min-h-screen flex-col relative'>
+    <div className='relative flex min-h-screen flex-col overflow-x-hidden'>
       <ScrollToTop />
       <HeroContainer>
         <Header />

@@ -1,7 +1,7 @@
 import H2 from '@/components/ui/H2';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
 import { cn } from '@/lib/utils';
-
+import AppearBottom from '@/components/ui/Appear-bottom';
 export function Services() {
   return (
     <section
@@ -17,7 +17,9 @@ export function Services() {
           'animate-view animate-from-bottom',
         )}
       >
-        <HoverEffect items={services} />
+        <AppearBottom>
+          <HoverEffect items={services} />
+        </AppearBottom>
       </div>
       <BottomTransition />
     </section>
@@ -68,14 +70,12 @@ const services = [
   },
   {
     title: 'Régie',
-    description:
-      "Organise et coordonne",
+    description: 'Organise et coordonne',
     link: '/services#regie',
   },
   {
     title: 'Manutention',
-    description:
-      "Prise en charge, transport et l'installation",
+    description: "Prise en charge, transport et l'installation",
     link: '/services#manutention',
   },
   {

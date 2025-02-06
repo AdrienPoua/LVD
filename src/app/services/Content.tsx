@@ -27,8 +27,8 @@ const services = [
     id: 'assurance',
     description:
       "Reconnaissant l'unicité et la valeur inestimable de vos biens, LDV ART offre une assurance 'fine art' complète. Sur demande, nous assurons vos œuvres à leur juste valeur. Nos équipes utilisent des outils de pointe pour réaliser des constats d'état détaillés à l'enlèvement et à la livraison, garantissant ainsi l'intégrité de vos biens tout au long du processus.",
-      image: '/images/services/camion.png',
-      svg: null,
+    image: '/images/services/camion.png',
+    svg: null,
     icon: Shield,
   },
   {
@@ -36,8 +36,8 @@ const services = [
     id: 'regie',
     description:
       "La régie d'exposition est un élément clé pour mettre en valeur votre art. Nous offrons des services complets, de la planification à l'exécution, pour assurer que votre exposition soit un succès. Notre équipe expérimentée gère tous les aspects logistiques, de la manipulation délicate des œuvres à leur installation parfaite, en passant par la coordination avec les lieux d'exposition.",
-      image: '/images/services/camion.png',
-      svg: null,
+    image: '/images/services/camion.png',
+    svg: null,
     icon: Hammer,
   },
   {
@@ -45,8 +45,8 @@ const services = [
     id: 'stockage',
     description:
       "Notre entrepôt privé, spécialement conçu pour l'art, offre un environnement sécurisé et contrôlé pour le stockage de vos œuvres. Que ce soit pour une courte durée ou un entreposage à long terme, nos installations garantissent des conditions optimales de conservation, protégeant vos pièces contre les dommages et les fluctuations environnementales.",
-      image: '/images/services/camion.png',
-      svg: null,
+    image: '/images/services/camion.png',
+    svg: null,
     icon: Archive,
   },
   {
@@ -54,8 +54,8 @@ const services = [
     id: 'manutention',
     description:
       "La manutention d'œuvres d'art exige une expertise et un soin particuliers. Notre équipe de professionnels formés assure une manipulation minutieuse de vos pièces à chaque étape, de la prise en charge initiale à l'installation finale. Nous utilisons des techniques et des équipements spécialisés pour garantir la sécurité et l'intégrité de chaque œuvre, quelle que soit sa taille ou sa fragilité.",
-      image: '/images/services/camion.png',
-      svg: null,
+    image: '/images/services/camion.png',
+    svg: null,
     icon: Hammer,
   },
 ];

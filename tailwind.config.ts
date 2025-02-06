@@ -61,25 +61,6 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-      keyframes: {
-        'from-bottom': {
-          '0%': { opacity: '0', transform: 'translateY(100px) scale(0.3)' },
-          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
-        },
-        'from-left': {
-          '0%': { opacity: '0.5', transform: 'translateX(-1000px) ' },
-          '100%': { opacity: '1', transform: 'translateX(0) ' },
-        },
-        'from-right': {
-          '0%': { opacity: '0.5', transform: 'translateX(1000px) scale(0.3)' },
-          '100%': { opacity: '1', transform: 'translateX(0) scale(1)' },
-        },
-      },
-      animation: {
-        'from-bottom': 'from-bottom 0.5s ease-out ',
-        'from-left': 'from-left 0.5s ease-out forwards',
-        'from-right': 'from-right 0.5s ease-out forwards',
-      },
     },
   },
   plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar-hide')],

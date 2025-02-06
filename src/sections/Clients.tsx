@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import H2 from '@/components/ui/H2';
+import AppearBottom from '@/components/ui/Appear-bottom';
+import { cn } from '@/lib/utils';
 
 const clients = [
   { label: 'Thaddaeus Ropac', type: 'Gallery', image: '/images/clients/ropac.png' },
@@ -24,22 +26,34 @@ const clients = [
 
 export default function ClientSection8() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section className='bg-foreground py-16' id='partenaires'>
       <div className='container mx-auto px-4'>
-        <H2 className='text-center text-background tracking-widest'>
+        <H2 className='text-center tracking-widest text-background'>
           Ils nous font <br /> confiance
         </H2>
-        <div className='flex justify-center pb-4'>
+        <div className='flex flex-col justify-center pb-4 md:flex-row'>
           {clients.map((client, index) => (
-            <Card
-              key={client.label}
-              client={client}
-              expandedIndex={expandedIndex}
-              setExpandedIndex={setExpandedIndex}
-              index={index}
-            />
+            <AppearBottom key={client.label}>
+              <Card
+                key={client.label}
+                client={client}
+                expandedIndex={expandedIndex}
+                setExpandedIndex={setExpandedIndex}
+                index={index}
+                isMobile={isMobile}
+              />
+            </AppearBottom>
           ))}
         </div>
       </div>
@@ -52,19 +66,25 @@ const Card = ({
   expandedIndex,
   setExpandedIndex,
   index,
+  isMobile,
 }: {
   client: (typeof clients)[number];
   expandedIndex: number | null;
   setExpandedIndex: (index: number | null) => void;
   index: number;
+  isMobile: boolean;
 }) => {
   return (
     <motion.div
-      className='relative mx-2 h-96 cursor-pointer overflow-hidden rounded-lg'
-      initial={{ width: '4rem' }}
-      animate={{ width: expandedIndex === index ? '16rem' : '4rem' }}
+      className='relative mx-2 h-20 cursor-pointer overflow-hidden rounded-lg md:h-96'
+      initial={{ width: isMobile ? '20rem' : '4rem' }}
+      animate={{ width: expandedIndex === index ? '16rem' : isMobile ? '20rem' : '4rem' }}
       transition={{ duration: 0.3 }}
-      onHoverStart={() => setExpandedIndex(expandedIndex === index ? null : index)}
+      onHoverStart={() => {
+        if (window.innerWidth > 768) {
+          setExpandedIndex(expandedIndex === index ? null : index);
+        }
+      }}
     >
       <div className='absolute inset-0'>
         <Image
@@ -96,7 +116,7 @@ const Card = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className='-rotate-90 transform whitespace-nowrap text-white'
+              className={cn('rotate-90 transform whitespace-nowrap text-white', isMobile ? 'rotate-0' : '-rotate-90')}
             >
               {client.label}
             </motion.div>

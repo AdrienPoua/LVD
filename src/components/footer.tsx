@@ -40,7 +40,6 @@ export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) 
               <Li>
                 <CustomLink href='/services#regie'>Régie</CustomLink>
               </Li>
-
             </ul>
           </Column>
           <Column>
@@ -63,7 +62,11 @@ export default function Footer({ variant = 'bg' }: { variant?: 'bg' | 'nude' }) 
         </div>
       </div>
       <div className={cn('flex w-full justify-center border-t border-accent py-5')}>
-        <Link href='https://www.linkedin.com/in/adrien-poua' target='_blank' className='relative w-fit text-accent font-secondary'>
+        <Link
+          href='https://www.linkedin.com/in/adrien-poua'
+          target='_blank'
+          className='relative w-fit font-secondary text-accent'
+        >
           Made by Adrien POUA
           <Underline />
         </Link>
