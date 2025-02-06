@@ -40,8 +40,8 @@ export const Card = ({ label, index, description, image }: CardProps) => {
           index % 2 === 0 ? "md:order-2" : "md:order-1",
         )}
       >
-        <h3 className="text-2xl font-semibold tracking-tight">{label}</h3>
-        {description && <p className="text-muted-foreground">{description}</p>}
+        <h3 className="text-3xl font-semibold tracking-tight">{label}</h3>
+        {description && <p className="text-muted-foreground text-xl">{description}</p>}
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ export default function ContactPage() {
 
 const Section = () => {
   return (
-    <section className='py-16 text-xl text-foreground'>
+    <section className=' text-xl text-foreground py-44'>
       <div className='mx-auto max-w-7xl px-4'>
         <div className='mb-16 text-center'>
           <h1 className='mb-4 font-secondary text-6xl font-bold'>Contactez-Nous</h1>

@@ -32,26 +32,21 @@ const data = [
   {
     label: 'Une équipe de techniciens fixes',
     description: 'Formé au conditionnement, maniement et transport de vos œuvres',
-    image: 'images/about/team.jpg',
+    image: 'images/about/team.png',
   },
   {
     label: 'Basé à Paris',
-    description: 'Nous sommes basés à Paris pour vous accompagner dans vos projets',
+    description: 'Nous sommes basés à Paris et transportons vos œuvres partout en France',
     image: 'images/about/paris.png',
   },
   {
-    label: 'blabla',
-    description: 'blabla',
-    image: 'images/about/available.png',
+    label: 'Une flotte de véhicules',
+    description: 'Nous disposons d\'une flotte de véhicules pour vous accompagner dans vos projets',
+    image: 'images/about/camion.png',
   },
   {
-    label: 'blabla',
-    description: 'blabla',
-    image: 'images/about/competitif.png',
-  },
-  {
-    label: 'blabla',
-    description: 'blabla',
+    label: 'Nos clients',
+    description: 'Que vous soyez collectionneur, artiste, musée, galerie ou tout autre acteur du monde de l’art, nous sommes là pour vous accompagner',
     image: 'images/about/speak.png',
   },
 ];

@@ -5,11 +5,6 @@ export default function HeroSection() {
     </main>
   );
 }
-
-const test = () => {
-  return <div>test</div>;
-};
-
 const Content = () => {
   return (
     <div>
